@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <button v-on:click.once="createAlert">경고창이 뜹니다.</button>
+</div>    
+<script>
+const app = Vue.createApp({
+    methods: {
+        createAlert() {
+            alert('경고창이 떴습니다.');
+        }
+    }
+});   
+app.mount('#app');
+</script>
+</body>
+</html>

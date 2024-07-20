@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a v-bind:href="site_link">{{ site_name }}</a>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    site_link : "https://daum.net",
+                    site_name : "다음 카카오"
+                }
+            }
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>

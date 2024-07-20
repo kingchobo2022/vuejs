@@ -1,0 +1,4 @@
+v-model
+Two-way binding
+
+양방향 바인딩

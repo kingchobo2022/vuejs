@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    width <br>
+    <input type="range" min="50" max="600" v-model="width"><br>
+    height <br>
+    <input type="range" min="50" max="600" v-model="height"><br>
+    <img src="3.jpg" v-bind:style="{ width: width+'px', height: height+'px'}">
+</div>    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            width: 200,
+            height: 200
+        }
+    }
+});
+app.mount('#app');
+</script>
+</body>
+</html>

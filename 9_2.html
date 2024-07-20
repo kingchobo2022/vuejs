@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <form v-on:submit.prevent="addItem">
+        <p>품목: <input type="text" required v-model="itemName"></p>
+        <p>갯수 : <select v-model="itemCnt">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select></p>
+        <button>상품추가</button>
+    </form>
+    <p>구입할 품목:</p>
+    <ul>
+        <li v-for="item in sList">{{ item.name }} ({{item.cnt}}개)</li>
+    </ul>
+</div>    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            itemName: null,
+            itemCnt: 1,
+            sList: [
+                { name: '감귤', cnt: 2 }
+            ]
+        }
+    },
+    methods: {
+        addItem() {
+            let item = {
+                name: this.itemName,
+                cnt: this.itemCnt
+            }
+            this.sList.push(item);
+            this.itemName = null;
+            this.itemCnt = 1;
+        }
+    }
+});    
+app.mount('#app');
+</script>
+</body>
+</html>

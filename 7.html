@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        #app > div {
+            width: 100px;
+            height: 100px;
+            background-color: goldenrod;   
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div v-on:click="changeMsg">{{ msg }}</div>
+    <button v-on:click="ohYes">눌러보세요.</button>
+</div> 
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            msg: ''
+        }
+    },
+    methods: {
+        changeMsg() {
+            this.msg = '짠, 텍스트가 나타납니다.';
+        },
+        ohYes() {
+            alert('Oh Yes');
+            this.msg = "방금 alert 뜬 거 봤죠?";
+        }
+    }
+}); 
+app.mount('#app');
+</script>   
+</body>
+</html>

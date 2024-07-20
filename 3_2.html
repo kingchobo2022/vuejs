@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="text.includes('햄버거')">그 문장에는 햄버거라는 단어가 들어 있습니다.</p>
+    <p v-else>그 문장에는 햄버거라는 단어가 들어 있지 않습니다.</p>
+</div>    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            text: '저는 피자와 햄버거 그리고 떡볶이를 좋아합니다.'
+        }
+    }
+});    
+app.mount('#app');
+</script>
+</body>
+</html>

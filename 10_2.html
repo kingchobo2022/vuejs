@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .imgSize { width: 300px; height: 300px; }
+        .bdClass {
+            border: 10px solid blueviolet;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <img src="2.jpg" v-on:click="click()" v-bind:class="[{bdClass: imgChk}, 'imgSize']">
+</div>    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            imgChk: false
+        }
+    },
+    methods: {
+        click() {
+            this.imgChk = !this.imgChk;
+        }
+    }
+});    
+app.mount('#app');
+</script>
+</body>
+</html>

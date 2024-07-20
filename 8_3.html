@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<style>
+#app > div {
+    width : 200px;
+    height : 200px;
+    background: goldenrod;
+}  
+textarea {
+    width: 100px;
+    height: 600px;
+}  
+</style>
+</head>
+<body>
+
+<div id="app">
+    <div v-on:mousemove="mousePos" v-on:click.right.prevent="mouseClick">
+        x: {{ x }} <br>
+        y: {{ y }}
+    </div>
+    <textarea>{{ msg }}</textarea>
+</div>    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            x: 0,
+            y: 0,
+            msg: ''
+        }
+    },
+    methods: {
+        mousePos(e) {
+            this.x = e.offsetX;
+            this.y = e.offsetY;                
+        },
+        mouseClick(e) {
+            this.msg += this.x + ',' + this.y + "\n";
+            //this.msg += `${this.x},${this.y}\n`;
+        }
+    }
+});  
+app.mount('#app');  
+</script>
+</body>
+</html>
