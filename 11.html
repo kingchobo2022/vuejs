@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type="checkbox" v-model="chk"> {{ yesNo }}
+</div>    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            chk: false
+        }
+    },
+    computed: {
+        yesNo() {
+            if(this.chk) {
+                return '예'
+            } else {
+                return '아니오'
+            }
+        }
+    }
+});    
+app.mount('#app');
+</script>
+</body>
+</html>
