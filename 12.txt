@@ -1,0 +1,4 @@
+data()
+methods,
+computed
+watch

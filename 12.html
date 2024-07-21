@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>60 이상이면 과열입니다.</p>
+    <input type="range" min="0" max="100" step="1" v-model="heat">
+    <p>현재온도 : {{ heat }}</p>
+    <p>과열횟수 : {{ overheat }}</p>
+</div>
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            heat: 40,
+            overheat: 0
+        }
+    },
+    watch: {
+        heat(val) {
+            if ( val > 60 ) {
+                this.overheat = this.overheat + 1;
+            }
+        }
+    }
+});
+app.mount('#app');
+</script>    
+</body>
+</html>

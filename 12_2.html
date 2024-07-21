@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .invalid { color : red }
+        .warning { color : blue }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <p>비밀번호 : </p>
+    <input type="password" v-model="inputPassword">
+    <p v-bind:class="myClass">{{ feedbackMsg }}</p>
+</div>    
+    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            inputPassword: '',
+            feedbackMsg: '비밀번호를 입력해 주세요.',
+            myClass: 'invalid'
+        }
+    },
+    watch: {
+        inputPassword(val) {
+            if (val.length == 0) {
+                this.feedbackMsg = '비밀번호를 입력해 주세요.';
+                this.myClass = 'invalid';
+            } else if (val.length < 3) {
+                this.feedbackMsg = '비밀번호는 3자 이상 입력 바랍니다.';
+                this.myClass = 'warning';
+            } else {
+                this.feedbackMsg = '좋은 비밀번호입니다.';
+                this.myClass = '';
+            }
+        }
+    }
+});    
+app.mount('#app');
+</script>
+</body>
+</html>

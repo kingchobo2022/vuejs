@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app">
+    <select v-model="station">
+        <option value="교대역">교대역</option>
+        <option value="신도림역">신도림역</option>
+        <option value="이수역">이수역</option>
+        <option value="신길역">신길역</option>
+        <option value="홍대역">홍대역</option>
+        <option value="잠실역">잠실역</option>
+    </select>
+    <textarea rows="20">{{ trace }}</textarea>
+</div>    
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            station: '신도림역',
+            trace : ''
+        }
+    },
+    watch: {
+        station(newVal, oldVal) {
+            this.trace += oldVal + ' => ' + newVal + '\n';
+        }
+    }
+});
+app.mount('#app');
+</script>
+</body>
+</html>
