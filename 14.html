@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+<div id="app"></div>    
+
+<script>
+
+const root = {
+    template : `<h1>왕초보 홈페이지 만들기 채널을 시청해 주셔서 감사합니다.</h1> 
+    <Header></Header>
+    <Main></Main>
+    <Footer></Footer>`
+}
+
+const header = {
+    template : '<div>이것은 상단 메뉴이구요.</div>'
+}
+const main = {
+    template : '<div>이건 메인 콘텐츠이구요.</div>'
+}
+const footer = {
+    template : '<div>이건 하단 푸터입니다.</div>'
+}
+
+const app = Vue.createApp(root);
+app.component('Header', header);
+app.component('Main', main);
+app.component('Footer', footer);
+app.mount('#app'); 
+   
+</script>
+</body>
+</html>
